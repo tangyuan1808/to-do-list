@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
-  # GET /users/new
+  skip_before_action :authenticate_user!, only: [:new, :create]
+
   def new
     @user = User.new
   end
 
-  # POST /users
   def create
     @user = User.new(user_params)
 
@@ -17,7 +17,6 @@ class UsersController < ApplicationController
 
   private
 
-  # Only allow a trusted parameter "white list" through.
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :name)
   end
