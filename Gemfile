@@ -30,6 +30,7 @@ gem 'slim'
 group :development, :test do
   gem 'pry'
   gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -49,7 +50,6 @@ group :test do
   #unit test
   gem 'rspec-rails'
   gem 'database_cleaner'
-  gem 'faker'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

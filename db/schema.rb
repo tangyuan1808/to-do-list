@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_14_051210) do
+ActiveRecord::Schema.define(version: 2019_06_15_214313) do
+
+  create_table "lists", force: :cascade do |t|
+    t.string "name"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_lists_on_user_id"
+  end
+
+  create_table "to_dos", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "user_id"
+    t.integer "list_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["list_id"], name: "index_to_dos_on_list_id"
+    t.index ["user_id"], name: "index_to_dos_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
