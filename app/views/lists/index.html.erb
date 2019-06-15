@@ -1,0 +1,17 @@
+<p id="alert"><%= alert %></p>
+<p id="notice"><%= notice %></p>
+
+<h1>Welcome</h1>
+
+<table>
+  <% @lists.each do |list| %>
+      <tr>
+        <td><%= list.name %></td>
+        <td><%= link_to 'Destroy', list_path(list), method: :delete %>
+        </td>
+      </tr>
+  <% end %>
+</table>
+
+<%= link_to '+ Create List', new_list_path %>
+
