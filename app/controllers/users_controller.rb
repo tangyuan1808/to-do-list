@@ -9,7 +9,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to root_path, notice: 'User was successfully created.'
+      flash[:notice] = '注册成功!'
+      redirect_to root_path
     else
       render :new
     end
@@ -18,6 +19,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :name)
+    params.permit(:email, :password, :password_confirmation, :name)
   end
 end

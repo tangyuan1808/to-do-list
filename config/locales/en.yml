@@ -30,4 +30,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    errors:
+      messages:
+        confirmation: "不匹配"
+        blank: "不能是空白的"
+    attributes:
+      user:
+        email: "邮箱"
+        name: "名字"
+        password: "密码"
+        password_confirmation: "确认密码"
