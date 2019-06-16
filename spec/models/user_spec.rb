@@ -18,7 +18,7 @@ describe User, type: :model do
       it 'contains the correct error message' do
         subject
 
-        expect(user.errors.messages[:email]).to eq(["不能是空白的"])
+        expect(user.errors.messages[:email]).to eq(['不能是空白的'])
       end
     end
 
@@ -32,7 +32,7 @@ describe User, type: :model do
       it 'contains the correct error message' do
         subject
 
-        expect(user.errors.messages[:email]).to eq(["已经被注册了"])
+        expect(user.errors.messages[:email]).to eq(['已经被注册了'])
       end
     end
 
@@ -46,7 +46,7 @@ describe User, type: :model do
       it 'contains the correct error message' do
         subject
 
-        expect(user.errors.messages[:name]).to eq(["不能是空白的"])
+        expect(user.errors.messages[:name]).to eq(['不能是空白的'])
       end
     end
 
@@ -60,7 +60,7 @@ describe User, type: :model do
       it 'contains the correct error message' do
         subject
 
-        expect(user.errors.messages[:name]).to eq(["已经被注册了"])
+        expect(user.errors.messages[:name]).to eq(['已经被注册了'])
       end
     end
   end

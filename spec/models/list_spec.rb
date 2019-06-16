@@ -19,7 +19,7 @@ describe List, type: :model do
       it 'contains the correct error message' do
         subject
 
-        expect(list.errors.messages[:name]).to eq(["不能是空白的"])
+        expect(list.errors.messages[:name]).to eq(['不能是空白的'])
       end
     end
 
@@ -34,7 +34,7 @@ describe List, type: :model do
       it 'contains the correct error message' do
         subject
 
-        expect(list.errors.messages[:name]).to eq(["太长（最多32个字符)"])
+        expect(list.errors.messages[:name]).to eq(['太长（最多32个字符)'])
       end
     end
   end

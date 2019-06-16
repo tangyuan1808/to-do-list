@@ -1,5 +1,4 @@
 class ToDosController < ApplicationController
-
   before_action :set_list
   before_action :set_to_do, only: [:edit, :destroy, :update]
 
@@ -11,8 +10,7 @@ class ToDosController < ApplicationController
     @to_do = ToDo.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @to_do.update_attributes(to_do_params)
@@ -34,11 +32,11 @@ class ToDosController < ApplicationController
   end
 
   def destroy
-    if @to_do.destroy
-      flash[:notice] = "#{@to_do.name} 删除成功!"
-    else
-      flash[:notice] = "#{@to_do.name} 无法删除!"
-    end
+    flash[:notice] = if @to_do.destroy
+                       "#{@to_do.name} 删除成功!"
+                     else
+                       "#{@to_do.name} 无法删除!"
+                     end
     redirect_to action: :index
   end
 

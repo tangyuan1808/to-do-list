@@ -1,0 +1,26 @@
+AllCops:
+  Exclude:
+    - bin/*
+    - script/*
+    - vendor/*
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: true
+  Max: 121
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+Style/WordArray:
+  EnforcedStyle: brackets
+
+Naming/PredicateName:
+    NamePrefixBlacklist:
+    - is_
+    - have_

@@ -11,6 +11,7 @@ Then(/^I should see a error message$/) do
 end
 
 And(/^I should be redirected to login page$/) do
+  sleep(0.5)
   expect(PageObject.current_page).to eq(login_path)
 end
 

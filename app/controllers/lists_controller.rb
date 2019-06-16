@@ -9,8 +9,7 @@ class ListsController < ApplicationController
     @list = List.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @list.update_attributes(list_params)

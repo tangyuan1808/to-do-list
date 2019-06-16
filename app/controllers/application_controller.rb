@@ -4,9 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def authenticate_user!
-    unless current_user && session[:expires_at] > Time.current
-      redirect_to root_path, notice: 'Session Expires'
-    end
+    redirect_to root_path, notice: 'Session Expires' unless current_user && session[:expires_at] > Time.current
   end
 
   def current_user

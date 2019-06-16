@@ -1,0 +1,10 @@
+.dockerignore*
+.gitignore
+.ruby-version
+.idea/
+Dockerfile*
+README.md
+log/
+tmp/
+vendor/
+.env*
