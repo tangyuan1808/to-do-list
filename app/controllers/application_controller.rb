@@ -16,4 +16,10 @@ class ApplicationController < ActionController::Base
       @current_user = nil
     end
   end
+
+  private
+
+  def user_params
+    { user_id: current_user.id }
+  end
 end

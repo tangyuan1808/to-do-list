@@ -12,7 +12,7 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.new(list_params.merge(user_id: current_user.id))
+    @list = List.new(list_params.merge(user_params))
     if @list.save
       flash[:notice] = "list #{@list.name} create succeed"
       redirect_to action: :index

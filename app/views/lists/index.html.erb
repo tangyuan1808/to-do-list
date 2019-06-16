@@ -6,7 +6,7 @@
 <table>
   <% @lists.each do |list| %>
       <tr>
-        <td><%= list.name %></td>
+        <td><%= link_to list.name, list_to_dos_path(list) %></td>
         <td><%= link_to 'Destroy', list_path(list), method: :delete %>
         </td>
       </tr>
