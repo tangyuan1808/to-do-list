@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:new, :create]
+  skip_before_action :authenticate_user!, only: [:signup, :create]
 
-  def new
+  def signup
     @user = User.new
   end
 
@@ -10,9 +10,9 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:notice] = '注册成功!'
-      redirect_to root_path
+      redirect_to login_path
     else
-      render :new
+      render :signup
     end
   end
 
