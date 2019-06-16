@@ -93,7 +93,6 @@
     font-size: 15px;
     color: #57b846;
     line-height: 1.5;
-    float: right;
 }
 
 .alert-error {
@@ -121,3 +120,6 @@
     float: right;
 }
 
+.left {
+    float: right;
+}

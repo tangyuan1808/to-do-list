@@ -14,17 +14,17 @@ class ListsController < ApplicationController
 
   def update
     if @list.update_attributes(list_params)
-      flash[:notice] = "list #{@list.name} update succeed"
+      flash[:notice] = "#{@list.name} 更新成功!"
       redirect_to action: :index
     else
-      render :new
+      render :edit
     end
   end
 
   def create
     @list = List.new(list_params.merge(user_params))
     if @list.save
-      flash[:notice] = "list #{@list.name} create succeed"
+      flash[:notice] = "#{@list.name} 创造成功!"
       redirect_to action: :index
     else
       render :new
@@ -32,14 +32,10 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    if current_user.id == @list.user_id
-      if @list.destroy
-        flash[:notice] = "list #{@list.name} is destroyed!"
-      else
-        flash[:notice] = "list #{@list.name} can not be destroyed!"
-      end
+    if @list.destroy
+      flash[:notice] = "#{@list.name} 删除成功!"
     else
-      flash[:notice] = "you do not have permission to delete this list"
+      flash[:alert] = "#{@list.name} 无法删除!"
     end
     redirect_to action: :index
   end
@@ -47,7 +43,7 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.require(:list).permit(:name)
+    params.permit(:name)
   end
 
   def set_list

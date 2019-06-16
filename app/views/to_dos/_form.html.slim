@@ -1,0 +1,19 @@
+= render 'layouts/return_list_link'
+= render 'layouts/header'
+
+.space
+#white-space
+
+= form_for(@to_do, url: url) do |form|
+  = render 'layouts/validation', object: @to_do
+
+  .input-wraper
+    = label_tag :name, '事件名称', class: 'form-label'
+    = text_field_tag :name, @to_do.name, class: 'form-input'
+
+  .input-wraper
+    = label_tag :description, '事件描述', class: 'form-label'
+    = text_field_tag :description, @to_do.description, class: 'form-input'
+
+  .button-wraper
+    = submit_tag "添加/更新", class: 'form-btn'

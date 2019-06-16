@@ -1,2 +1,11 @@
-.right
-  = link_to "回到主页", root_path, class: "link"
+.space
+  #white-space
+
+= render 'layouts/log_out_link'
+
+.mar-60
+  #white-space
+
+.form-header
+  span
+    = current_user.name + " 的记事本"

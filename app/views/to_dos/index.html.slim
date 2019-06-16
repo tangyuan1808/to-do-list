@@ -1,0 +1,16 @@
+= render 'layouts/return_list_link'
+= render 'layouts/header'
+
+.space
+  #white-space
+
+- @to_dos.each do |to_do|
+  .row
+    = link_to to_do.name, edit_list_to_do_path(@list, to_do), class: 'cell'
+    = link_to '删除', list_to_do_path(@list, to_do), method: :delete, class: 'cell'
+
+.space
+  #white-space
+
+.right
+  = link_to '+ 创建事件', new_list_to_do_path, class: 'link'

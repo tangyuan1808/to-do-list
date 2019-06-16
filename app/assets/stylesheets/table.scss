@@ -1,0 +1,22 @@
+.row  {
+  width: 380px;
+  line-height: 1.2;
+}
+
+.cell {
+  font-family: Poppins-Regular;
+  font-size: 15px;
+  color: darkcyan;
+  font-weight: unset !important;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 25px;
+  border-bottom: 1px solid #f2f2f2;
+  width: 100px;
+  max-width: 100px;
+  overflow: auto;
+}
+
+.cell {
+  display: table-cell;
+}

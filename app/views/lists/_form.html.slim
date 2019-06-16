@@ -1,0 +1,15 @@
+= render 'layouts/return_list_link'
+= render 'layouts/header'
+
+.space
+#white-space
+
+= form_for(@list) do |form|
+  = render 'layouts/validation', object: @list
+
+  .input-wraper
+    = label_tag :name, '列表名称', class: 'form-label'
+    = text_field_tag :name, @list.name, class: 'form-input'
+
+  .button-wraper
+    = submit_tag "添加/更新", class: 'form-btn'

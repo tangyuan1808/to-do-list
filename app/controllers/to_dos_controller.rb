@@ -16,17 +16,17 @@ class ToDosController < ApplicationController
 
   def update
     if @to_do.update_attributes(to_do_params)
-      flash[:notice] = "#{@to_do.name} update succeed"
+      flash[:notice] = "#{@to_do.name} 更新成功!"
       redirect_to action: :index
     else
-      render :new
+      render :edit
     end
   end
 
   def create
-    @to_do = ToDo.new(to_do_params.merge(user_params).merge(list_params))
+    @to_do = ToDo.new(to_do_params.merge(user_params))
     if @to_do.save
-      flash[:notice] = "#{@to_do.name} create succeed"
+      flash[:notice] = "#{@to_do.name} 创造成功!"
       redirect_to action: :index
     else
       render :new
@@ -34,14 +34,10 @@ class ToDosController < ApplicationController
   end
 
   def destroy
-    if current_user.id == @to_do.user_id
-      if @to_do.destroy
-        flash[:notice] = "#{@to_do.name} is destroyed!"
-      else
-        flash[:notice] = "#{@to_do.name} can not be destroyed!"
-      end
+    if @to_do.destroy
+      flash[:notice] = "#{@to_do.name} 删除成功!"
     else
-      flash[:notice] = "you do not have permission to delete this list"
+      flash[:notice] = "#{@to_do.name} 无法删除!"
     end
     redirect_to action: :index
   end
@@ -49,7 +45,7 @@ class ToDosController < ApplicationController
   private
 
   def set_list
-    @list = List.find(list_params[:list_id])
+    @list = List.find(params[:list_id])
   end
 
   def set_to_do
@@ -57,10 +53,6 @@ class ToDosController < ApplicationController
   end
 
   def to_do_params
-    params.require(:to_do).permit(:name, :description)
-  end
-
-  def list_params
-    params.permit(:list_id)
+    params.permit(:name, :description, :list_id)
   end
 end

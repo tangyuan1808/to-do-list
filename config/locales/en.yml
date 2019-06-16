@@ -41,3 +41,8 @@ en:
         name: "名字"
         password: "密码"
         password_confirmation: "确认密码"
+      list:
+        name: "列表名称"
+      to_do:
+        name: "事件名称"
+        description: "事件描述"
