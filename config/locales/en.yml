@@ -35,6 +35,7 @@ en:
       messages:
         confirmation: "不匹配"
         blank: "不能是空白的"
+        too_long: '太长（最多%{count}个字符)'
     attributes:
       user:
         email: "邮箱"

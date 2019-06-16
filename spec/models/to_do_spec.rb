@@ -20,21 +20,7 @@ describe ToDo, type: :model do
       it 'contains the correct error message' do
         subject
 
-        expect(to_do.errors.messages[:name]).to eq(["can't be blank"])
-      end
-    end
-
-    context 'name must be unique' do
-      before :each do
-        FactoryBot.create(:to_do, user_id: user.id, list_id: list.id, name: to_do.name)
-      end
-
-      it { is_expected.to eq false }
-
-      it 'contains the correct error message' do
-        subject
-
-        expect(to_do.errors.messages[:name]).to eq(["has already been taken"])
+        expect(to_do.errors.messages[:name]).to eq(["不能是空白的"])
       end
     end
 
@@ -49,7 +35,7 @@ describe ToDo, type: :model do
       it 'contains the correct error message' do
         subject
 
-        expect(to_do.errors.messages[:name]).to eq(["is too long (maximum is 32 characters)"])
+        expect(to_do.errors.messages[:name]).to eq(["太长（最多32个字符)"])
       end
     end
   end
