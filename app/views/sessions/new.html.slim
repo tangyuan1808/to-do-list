@@ -1,10 +1,7 @@
-p
-  #alert
-    .alert-error
-      = alert
-
 .container
-  .login-wrap
+  .body
+    = render 'layouts/alert'
+
     .login-form-title
       span 欢迎您
 
@@ -24,22 +21,3 @@ p
 
     .mar-60
       = link_to "快点注册 !", signup_path, class: 'link'
-/<p id="alert"><%= alert %></p>
-/<p id="notice"><%= notice %></p>
-/
-/<h1>Welcome</h1>
-/<%= form_tag sessions_path do |form| %>
-/  <div class="field">
-/    <%= label_tag :email %>
-/    <%= text_field_tag :email %>
-/  </div>
-/  <div class="field">
-/    <%= label_tag :password %>
-/    <%= password_field_tag :password %>
-/  </div>
-/  <div class="actions">
-/    <%= submit_tag "Login" %>
-/  </div>
-/<% end %>
-/
-/<%= link_to "Sign Up", signup_path %>

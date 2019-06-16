@@ -9,15 +9,17 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       session[:expires_at] = Time.current + 2.hours
-      redirect_to lists_path, notice: "Logged in!"
+      flash[:notice] = "登录成功!"
+      redirect_to lists_path
     else
-      flash.now[:alert] = "Email or password is invalid"
+      flash[:alert] = "邮箱或密码无效"
       render "new"
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_url, notice: "Logged out!"
+    flash[:notice] = "登录失败!"
+    redirect_to root_url
   end
 end
