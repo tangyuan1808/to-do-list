@@ -1,6 +1,7 @@
 class ToDosController < ApplicationController
 
   before_action :set_list
+  before_action :set_to_do, only: [:edit, :destroy, :update]
 
   def index
     @to_dos = @list.to_dos
@@ -11,7 +12,15 @@ class ToDosController < ApplicationController
   end
 
   def edit
+  end
 
+  def update
+    if @to_do.update_attributes(to_do_params)
+      flash[:notice] = "#{@to_do.name} update succeed"
+      redirect_to action: :index
+    else
+      render :new
+    end
   end
 
   def create
@@ -25,12 +34,11 @@ class ToDosController < ApplicationController
   end
 
   def destroy
-    to_do = ToDo.find(params[:id])
-    if current_user.id == to_do.user_id
-      if to_do.destroy
-        flash[:notice] = "#{to_do.name} is destroyed!"
+    if current_user.id == @to_do.user_id
+      if @to_do.destroy
+        flash[:notice] = "#{@to_do.name} is destroyed!"
       else
-        flash[:notice] = "#{to_do.name} can not be destroyed!"
+        flash[:notice] = "#{@to_do.name} can not be destroyed!"
       end
     else
       flash[:notice] = "you do not have permission to delete this list"
@@ -42,6 +50,10 @@ class ToDosController < ApplicationController
 
   def set_list
     @list = List.find(list_params[:list_id])
+  end
+
+  def set_to_do
+    @to_do = ToDo.find(params[:id])
   end
 
   def to_do_params

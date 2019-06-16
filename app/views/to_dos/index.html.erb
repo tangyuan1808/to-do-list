@@ -1,9 +1,11 @@
 <h1>Welcome</h1>
 
+<%= link_to 'Back to Categories', lists_path %>
+
 <table>
   <% @to_dos.each do |to_do| %>
       <tr>
-        <td><%= to_do.name %></td>
+        <td><%= link_to to_do.name, edit_list_to_do_path(@list, to_do) %></td>
         <td><%= link_to 'Destroy', list_to_do_path(@list, to_do), method: :delete %>
       </tr>
   <% end %>
