@@ -1,6 +1,6 @@
 # README
 
-    迷你记事本
+    迷你记事本(https://lucas-to-do-app.herokuapp.com/)
     
 ![](to-do-demo.gif)
 
@@ -24,13 +24,19 @@
         gem install bundler -v 2.0.1
         bundle
                 
-* Set up database(sqlite)
+* Set up database(postgreSQL)
         
-        bundle exec rake db:migrate
+        brew install postgres
+        pg_ctl -D /usr/local/var/postgres start
+        bundle exec rake db:create db:migrate
         
 * Start application server         
 
         bundle exec rails s
+
+* Stop database
+    
+        pg_ctl -D /usr/local/var/postgres stop
         
 ##### 其他用户
 
@@ -71,6 +77,6 @@
     Rails 5.2.3
     cucumber 
     rspec 
-    sqlite
+    postgreSQL
         
          
