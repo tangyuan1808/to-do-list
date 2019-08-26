@@ -1,7 +1,7 @@
 = render 'layouts/home_link'
 
 .form-title
-  span 注册用户
+  span Sign up User
 
 .space
   #white-space
@@ -10,20 +10,20 @@
   = render 'layouts/validation', object: @user
 
   .input-wraper
-    = label_tag :name, '名字', class: 'form-label'
+    = label_tag :name, 'Name', class: 'form-label'
     = text_field_tag :name, nil, class: 'form-input'
 
   .input-wraper
-    = label_tag :email, '邮箱', class: 'form-label'
+    = label_tag :email, 'Email', class: 'form-label'
     = text_field_tag :email, nil, class: 'form-input'
 
   .input-wraper
-    = label_tag :password, '密码', class: 'form-label'
+    = label_tag :password, 'Password', class: 'form-label'
     = password_field_tag :password, nil, class: 'form-input'
 
   .input-wraper
-    = label_tag :password_confirmation, '确认密码', class: 'form-label'
+    = label_tag :password_confirmation, 'Confirm Password', class: 'form-label'
     = password_field_tag :password_confirmation, nil, class: 'form-input'
 
   .button-wraper
-    = submit_tag "注册", class: 'form-btn'
+    = submit_tag "Sign up", class: 'form-btn'

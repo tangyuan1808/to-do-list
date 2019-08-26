@@ -20,7 +20,7 @@ describe ToDo, type: :model do
       it 'contains the correct error message' do
         subject
 
-        expect(to_do.errors.messages[:name]).to eq(['不能是空白的'])
+        expect(to_do.errors.messages[:name]).to include("can't be blank")
       end
     end
 
@@ -35,7 +35,7 @@ describe ToDo, type: :model do
       it 'contains the correct error message' do
         subject
 
-        expect(to_do.errors.messages[:name]).to eq(['太长（最多32个字符)'])
+        expect(to_do.errors.messages[:name]).to include("is too long (maximum is 32 characters)")
       end
     end
   end

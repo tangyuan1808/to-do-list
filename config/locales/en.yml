@@ -1,49 +1,31 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  activerecord:
-    errors:
-      messages:
-        confirmation: "不匹配"
-        blank: "不能是空白的"
-        too_long: '太长（最多%{count}个字符)'
-    attributes:
+  success:
+    messages:
+      login_success: Login successful!
+      logout_success: Logout successful!
+      signup_scuuess:
       user:
-        email: "邮箱"
-        name: "名字"
-        password: "密码"
-        password_confirmation: "确认密码"
+        create_success: '%{user_name} successfully created.'
       list:
-        name: "列表名称"
+        update_success: "%{list_name} update successful!"
+        create_success: "%{list_name} create successful!"
+        delete_success: "%{list_name} delete successful!"
+      todo:
+        update_success: "%{todo_name} update successful!"
+        create_success: "%{todo_name} create successful!"
+        delete_success: "%{todo_name} delete successful!"
+  error:
+    messages:
+      wrong_username_password: Username/Password combination is invalid.
+      session_expire: Session Expires!
+      list:
+        delete_fail: "Delete %{list_name} failed"
+      todo:
+        delete_fail: "Delete %{todo_name} failed"
+  activerecord:
+    attributes:
+      list:
+        name: List name
       to_do:
-        name: "事件名称"
-        description: "事件描述"
+        name: Todo name
+        description: Todo description

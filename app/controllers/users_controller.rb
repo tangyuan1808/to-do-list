@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      flash[:notice] = '注册成功!'
+      flash[:notice] = I18n.t('success.messages.user.create_success', user_name: @user.name)
       redirect_to login_path
     else
       render :signup

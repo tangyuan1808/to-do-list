@@ -14,7 +14,7 @@ class ToDosController < ApplicationController
 
   def update
     if @to_do.update_attributes(to_do_params)
-      flash[:notice] = "#{@to_do.name} 更新成功!"
+      flash[:notice] = I18n.t('success.messages.todo.update_success', todo_name: @to_do.name)
       redirect_to action: :index
     else
       render :edit
@@ -24,7 +24,7 @@ class ToDosController < ApplicationController
   def create
     @to_do = ToDo.new(to_do_params.merge(user_params))
     if @to_do.save
-      flash[:notice] = "#{@to_do.name} 创造成功!"
+      flash[:notice] = I18n.t('success.messages.todo.create_success', todo_name: @to_do.name)
       redirect_to action: :index
     else
       render :new
@@ -32,11 +32,12 @@ class ToDosController < ApplicationController
   end
 
   def destroy
-    flash[:notice] = if @to_do.destroy
-                       "#{@to_do.name} 删除成功!"
-                     else
-                       "#{@to_do.name} 无法删除!"
-                     end
+    if @to_do.destroy
+      flash[:notice] = I18n.t('success.messages.todo.delete_success', todo_name: @to_do.name)
+    else
+      flash[:notice] = I18n.t('error.messages.todo.delete_fail', todo_name: @to_do.name)
+    end
+
     redirect_to action: :index
   end
 

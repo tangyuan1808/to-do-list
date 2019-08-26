@@ -6,11 +6,11 @@
 - @lists.each do |list|
   .row
     = link_to list.name, list_to_dos_path(list), class: 'cell'
-    = link_to '编辑', edit_list_path(list), class: 'cell'
-    = link_to '删除', list_path(list), method: :delete, class: 'cell'
+    = link_to 'Edit', edit_list_path(list), class: 'cell'
+    = link_to 'Delete', list_path(list), method: :delete, class: 'cell'
 
 .space
   #white-space
 
 .right
-  = link_to '+ 创建列表', new_list_path, class: 'link'
+  = link_to 'New', new_list_path, class: 'link'

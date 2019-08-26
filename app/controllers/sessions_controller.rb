@@ -8,17 +8,17 @@ class SessionsController < ApplicationController
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
       session[:expires_at] = Time.current + 2.hours
-      flash[:notice] = '登录成功!'
+      flash[:notice] = I18n.t('success.messages.login_success')
       redirect_to lists_path
     else
-      flash[:alert] = '邮箱或密码无效'
+      flash[:alert] = I18n.t('error.messages.wrong_username_password')
       render 'new'
     end
   end
 
   def destroy
     session[:user_id] = nil
-    flash[:notice] = '登出成功!'
+    flash[:notice] = I18n.t('success.messages.logout_success')
     redirect_to login_path
   end
 end

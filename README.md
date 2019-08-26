@@ -1,16 +1,16 @@
 # README
 
-    迷你记事本(https://lucas-to-do-app.herokuapp.com/)
+    mini note book(https://lucas-to-do-app.herokuapp.com/)
     
 ![](to-do-demo.gif)
 
-#### 如何clone项目
+### Clone the repo
 
     git clone https://github.com/tangyuan1808/to-do-list.git
     
-### 如何设置环境
+### Set up Environment
 
-##### Mac 用户
+##### Mac User
 
 * Install Ruby(rbenv is the ruby manager)
 
@@ -38,11 +38,11 @@
     
         pg_ctl -D /usr/local/var/postgres stop
         
-##### 其他用户
+##### Other User
 
-    请使用Docker
+    Please use Docker
 
-#### 如何运行测试
+#### How to run test
 
 * Set up test database
 
@@ -71,7 +71,7 @@
         docker run --rm -t to-do-list bundle exec rspec 
     
                  
-#### 技术堆栈
+#### Technology Stack
 
     Ruby 2.6.2
     Rails 5.2.3

@@ -13,7 +13,7 @@ class ListsController < ApplicationController
 
   def update
     if @list.update_attributes(list_params)
-      flash[:notice] = "#{@list.name} 更新成功!"
+      flash[:notice] = I18n.t('success.messages.list.update_success', list_name: @list.name)
       redirect_to action: :index
     else
       render :edit
@@ -23,7 +23,7 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params.merge(user_params))
     if @list.save
-      flash[:notice] = "#{@list.name} 创造成功!"
+      flash[:notice] = I18n.t('success.messages.list.create_success', list_name: @list.name)
       redirect_to action: :index
     else
       render :new
@@ -32,10 +32,11 @@ class ListsController < ApplicationController
 
   def destroy
     if @list.destroy
-      flash[:notice] = "#{@list.name} 删除成功!"
+      flash[:notice] = I18n.t('success.messages.list.delete_success', list_name: @list.name)
     else
-      flash[:alert] = "#{@list.name} 无法删除!"
+      flash[:alert] = I18n.t('error.messages.list.delete_fail', list_name: @list.name)
     end
+
     redirect_to action: :index
   end
 
