@@ -32,11 +32,11 @@ class ToDosController < ApplicationController
   end
 
   def destroy
-    if @to_do.destroy
-      flash[:notice] = I18n.t('success.messages.todo.delete_success', todo_name: @to_do.name)
-    else
-      flash[:notice] = I18n.t('error.messages.todo.delete_fail', todo_name: @to_do.name)
-    end
+    flash[:notice] = if @to_do.destroy
+                       I18n.t('success.messages.todo.delete_success', todo_name: @to_do.name)
+                     else
+                       I18n.t('error.messages.todo.delete_fail', todo_name: @to_do.name)
+                     end
 
     redirect_to action: :index
   end

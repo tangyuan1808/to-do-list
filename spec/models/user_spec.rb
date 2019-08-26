@@ -32,7 +32,7 @@ describe User, type: :model do
       it 'contains the correct error message' do
         subject
 
-        expect(user.errors.messages[:email]).to include("has already been taken")
+        expect(user.errors.messages[:email]).to include('has already been taken')
       end
     end
 
@@ -60,7 +60,7 @@ describe User, type: :model do
       it 'contains the correct error message' do
         subject
 
-        expect(user.errors.messages[:name]).to include("has already been taken")
+        expect(user.errors.messages[:name]).to include('has already been taken')
       end
     end
   end

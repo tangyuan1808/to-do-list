@@ -34,7 +34,7 @@ describe List, type: :model do
       it 'contains the correct error message' do
         subject
 
-        expect(list.errors.messages[:name]).to include("is too long (maximum is 32 characters)")
+        expect(list.errors.messages[:name]).to include('is too long (maximum is 32 characters)')
       end
     end
   end

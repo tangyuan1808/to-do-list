@@ -35,7 +35,7 @@ describe ToDo, type: :model do
       it 'contains the correct error message' do
         subject
 
-        expect(to_do.errors.messages[:name]).to include("is too long (maximum is 32 characters)")
+        expect(to_do.errors.messages[:name]).to include('is too long (maximum is 32 characters)')
       end
     end
   end

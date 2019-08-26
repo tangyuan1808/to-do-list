@@ -10,40 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_15_214313) do
-
+ActiveRecord::Schema.define(version: 20_190_615_214_313) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "lists", force: :cascade do |t|
-    t.string "name"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_lists_on_user_id"
+  create_table 'lists', force: :cascade do |t|
+    t.string 'name'
+    t.bigint 'user_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['user_id'], name: 'index_lists_on_user_id'
   end
 
-  create_table "to_dos", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.bigint "user_id"
-    t.bigint "list_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["list_id"], name: "index_to_dos_on_list_id"
-    t.index ["user_id"], name: "index_to_dos_on_user_id"
+  create_table 'to_dos', force: :cascade do |t|
+    t.string 'name'
+    t.text 'description'
+    t.bigint 'user_id'
+    t.bigint 'list_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['list_id'], name: 'index_to_dos_on_list_id'
+    t.index ['user_id'], name: 'index_to_dos_on_user_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "email"
-    t.string "password_digest"
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
+  create_table 'users', force: :cascade do |t|
+    t.string 'email'
+    t.string 'password_digest'
+    t.string 'name'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['email'], name: 'index_users_on_email', unique: true
   end
 
-  add_foreign_key "lists", "users"
-  add_foreign_key "to_dos", "lists"
-  add_foreign_key "to_dos", "users"
+  add_foreign_key 'lists', 'users'
+  add_foreign_key 'to_dos', 'lists'
+  add_foreign_key 'to_dos', 'users'
 end
